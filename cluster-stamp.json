@@ -132,7 +132,7 @@
 
         "akvPrivateDnsZonesName": "privatelink.vaultcore.azure.net",
 
-        "clusterControlPlaneIdentityName": "[concat('mi-', variables('clusterName'), '-controlplane')]",
+        "clusterControlPlaneIdentityName": "[concat('mi-', variables('clusterName'), '-controlplane2')]",
 
         "keyVaultName": "[concat('kv-', variables('clusterName'))]",
 
