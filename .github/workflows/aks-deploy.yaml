@@ -1,4 +1,4 @@
-# This workflow will deploy two clusters, one in each region, without the workload2.
+# This workflow will deploy two clusters, one in each region, without the workload.
 #
 # Follow the next steps to use this workflow:
 #
@@ -23,7 +23,7 @@ on:
       - '.github/workflows/aks-deploy.yaml'
     branches: [ main ]
 env:
-  DEPLOY_REGION1: 'true'
+  DEPLOY_REGION1: 'false'
   DEPLOY_REGION2: 'true'
 jobs:
   deploy:
