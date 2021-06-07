@@ -39,19 +39,6 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: ACR Images
-      id: acr-images
-      uses: Azure/cli@v1.0.0
-      with:
-        inlineScript: |
-          ACR_NAME_BU0001A0042=$(az deployment group show -g rg-bu0001a0042-shared -n shared-svcs-stamp --query properties.outputs.containerRegistryName.value -o tsv)
-          az acr import --source docker.io/library/memcached:1.5.20 -n $ACR_NAME_BU0001A0042 --force
-          az acr import --source docker.io/fluxcd/flux:1.19.0 -n $ACR_NAME_BU0001A0042 --force
-          az acr import --source docker.io/weaveworks/kured:1.4.0 -n $ACR_NAME_BU0001A0042 --force
-          az acr import --source docker.io/library/traefik:v2.4.8 -n $ACR_NAME_BU0001A0042 --force
-
-        azcliversion: 2.17.1
-
     # -----------------------REGION1------------------------------------------------
     # Deploy the cluster into your environment, assuming all prerequisites are up and running.
     - name: Azure CLI - Deploy AKS cluster - Region 1
